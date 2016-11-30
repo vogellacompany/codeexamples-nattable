@@ -19,6 +19,7 @@
       <plugin id="ca.odell.glazedlists"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="com.vogella.model"/>
+      <plugin id="com.vogella.model.service"/>
       <plugin id="com.vogella.nattable"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>

@@ -41,7 +41,7 @@ import com.vogella.model.TreeItem;
 public class TreePart {
 
 	@PostConstruct
-	public void createComposite(Composite parent) {
+	public void createComposite(Composite parent, TodoService todoService) {
 		parent.setLayout(new GridLayout(1, false));
 
 		// create a new ConfigRegistry which will be needed for GlazedLists
@@ -59,8 +59,8 @@ public class TreePart {
 		IColumnPropertyAccessor<TreeItem<Todo>> columnPropertyAccessor = new ExtendedReflectiveColumnPropertyAccessor<TreeItem<Todo>>(
 				propertyNames);
 
-		final BodyLayerStack<TreeItem<Todo>> bodyLayerStack = new BodyLayerStack<TreeItem<Todo>>(TodoService.getSampleTodoTreeItems(),
-				columnPropertyAccessor, new TreeItemFormat());
+		final BodyLayerStack<TreeItem<Todo>> bodyLayerStack = new BodyLayerStack<TreeItem<Todo>>(
+				todoService.getSampleTodoTreeItems(), columnPropertyAccessor, new TreeItemFormat());
 
 		// build the column header layer
 		IDataProvider columnHeaderDataProvider = new DefaultColumnHeaderDataProvider(propertyNames, propertyToLabelMap);
@@ -85,9 +85,10 @@ public class TreePart {
 
 		// turn the auto configuration off as we want to add our header menu
 		// configuration
-		 final NatTable natTable = new NatTable(parent, gridLayer, false);
-//		bodyLayerStack.setRegionName(GridRegion.BODY);
-//		final NatTable natTable = new NatTable(parent, bodyLayerStack, false);
+		final NatTable natTable = new NatTable(parent, gridLayer, false);
+		// bodyLayerStack.setRegionName(GridRegion.BODY);
+		// final NatTable natTable = new NatTable(parent, bodyLayerStack,
+		// false);
 
 		// as the autoconfiguration of the NatTable is turned off, we have to
 		// add the DefaultNatTableStyleConfiguration and the ConfigRegistry

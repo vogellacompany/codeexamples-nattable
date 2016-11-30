@@ -28,7 +28,7 @@ import ca.odell.glazedlists.TreeList;
 public class SimpleTreePart {
 
 	@PostConstruct
-	public void createComposite(Composite parent) {
+	public void createComposite(Composite parent, TodoService todoService) {
 		// property names of the Person class
 		String[] propertyNames = { "item.summary", "item.description" };
 
@@ -39,17 +39,19 @@ public class SimpleTreePart {
 
 		IColumnPropertyAccessor<TreeItem<Todo>> columnPropertyAccessor = new ExtendedReflectiveColumnPropertyAccessor<TreeItem<Todo>>(
 				propertyNames);
-		
-		EventList<TreeItem<Todo>> eventList = GlazedLists.eventList(TodoService.getSampleTodoTreeItems());
-		TreeList<TreeItem<Todo>> treeList = new TreeList<TreeItem<Todo>>(eventList, new TreeItemFormat(), TreeList.nodesStartExpanded());
+
+		EventList<TreeItem<Todo>> eventList = GlazedLists.eventList(todoService.getSampleTodoTreeItems());
+		TreeList<TreeItem<Todo>> treeList = new TreeList<TreeItem<Todo>>(eventList, new TreeItemFormat(),
+				TreeList.nodesStartExpanded());
 		ListDataProvider<TreeItem<Todo>> dataProvider = new ListDataProvider<>(treeList, columnPropertyAccessor);
 		DataLayer dataLayer = new DataLayer(dataProvider);
-		
+
 		GlazedListTreeData<TreeItem<Todo>> glazedListTreeData = new GlazedListTreeData<>(treeList);
-		GlazedListTreeRowModel<TreeItem<Todo>> glazedListTreeRowModel = new GlazedListTreeRowModel<>(glazedListTreeData);
-		
+		GlazedListTreeRowModel<TreeItem<Todo>> glazedListTreeRowModel = new GlazedListTreeRowModel<>(
+				glazedListTreeData);
+
 		TreeLayer treeLayer = new TreeLayer(dataLayer, glazedListTreeRowModel);
-		
+
 		dataLayer.setRegionName(GridRegion.BODY);
 		new NatTable(parent, treeLayer, true);
 
