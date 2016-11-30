@@ -1,0 +1,9 @@
+== Codeexamples for Nebula NatTable
+
+Here you can find the samples from http://www.vogella.com/tutorials/NatTable/article.html and more.
+
+== Setup
+
+These samples rely on a generic data model of the vogella company.
+Therefore the repository from https://github.com/vogellacompany/codeexamples-javadatamodel also has to be cloned into the workspace.
+
