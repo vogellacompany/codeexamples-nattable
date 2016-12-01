@@ -1,8 +1,5 @@
 package com.vogella.nattable.parts.tree;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.PostConstruct;
 
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -29,13 +26,8 @@ public class SimpleTreePart {
 
 	@PostConstruct
 	public void createComposite(Composite parent, TodoService todoService) {
-		// property names of the Person class
+		// Properties of the Todo items inside the TreeItems
 		String[] propertyNames = { "item.summary", "item.description" };
-
-		// mapping from property to label, needed for column header labels
-		Map<String, String> propertyToLabelMap = new HashMap<String, String>();
-		propertyToLabelMap.put("item.summary", "Summary");
-		propertyToLabelMap.put("item.description", "Description");
 
 		IColumnPropertyAccessor<TreeItem<Todo>> columnPropertyAccessor = new ExtendedReflectiveColumnPropertyAccessor<TreeItem<Todo>>(
 				propertyNames);
@@ -45,16 +37,23 @@ public class SimpleTreePart {
 				TreeList.nodesStartExpanded());
 		ListDataProvider<TreeItem<Todo>> dataProvider = new ListDataProvider<>(treeList, columnPropertyAccessor);
 		DataLayer dataLayer = new DataLayer(dataProvider);
+		setColumWidthPercentage(dataLayer);
 
 		GlazedListTreeData<TreeItem<Todo>> glazedListTreeData = new GlazedListTreeData<>(treeList);
 		GlazedListTreeRowModel<TreeItem<Todo>> glazedListTreeRowModel = new GlazedListTreeRowModel<>(
 				glazedListTreeData);
 
 		TreeLayer treeLayer = new TreeLayer(dataLayer, glazedListTreeRowModel);
+		treeLayer.setRegionName(GridRegion.BODY);
 
-		dataLayer.setRegionName(GridRegion.BODY);
 		new NatTable(parent, treeLayer, true);
 
 		GridLayoutFactory.fillDefaults().generateLayout(parent);
+	}
+
+	private void setColumWidthPercentage(DataLayer dataLayer) {
+		dataLayer.setColumnPercentageSizing(true);
+		dataLayer.setColumnWidthPercentageByPosition(0, 50);
+		dataLayer.setColumnWidthPercentageByPosition(1, 50);
 	}
 }

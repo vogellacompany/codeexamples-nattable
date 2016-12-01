@@ -8,13 +8,6 @@ import com.vogella.model.TreeItem;
 
 import ca.odell.glazedlists.TreeList;
 
-/**
- * Simple TreeList.Format implementation that uses the lastname of the Todo
- * object as tree item.
- * <p>
- * Using a String directly as the tree item has the possible disadvantage of
- * haven non-unique items in the tree within subtrees.
- */
 class TreeItemFormat implements TreeList.Format<TreeItem<Todo>> {
 
 	@Override
@@ -27,7 +20,7 @@ class TreeItemFormat implements TreeList.Format<TreeItem<Todo>> {
 
 	@Override
 	public boolean allowsChildren(TreeItem<Todo> element) {
-		return true;
+		return element.hasChildren();
 	}
 
 	@Override
