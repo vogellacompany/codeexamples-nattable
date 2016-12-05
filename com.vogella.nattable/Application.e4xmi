@@ -6,6 +6,11 @@
         <children xsi:type="basic:Part" xmi:id="_PYpQcLp6Eea5N61WkxPVmA" elementId="com.vogella.nattable.part.nattabledataexample" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTableE4SelectionListenerPart" label="NatTable E4 Selection Example"/>
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.part.tree" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.tree.SimpleTreePart" label="Simple Tree Part"/>
         <children xsi:type="basic:Part" xmi:id="_n5S7QLbWEea5WYNV8oR5hA" elementId="com.vogella.nattable.part.tree" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.tree.TreePart" label="Tree Part"/>
+        <children xsi:type="basic:Part" xmi:id="_aPQpILqEEea5N61WkxPVmA" elementId="com.vogella.nattable.part.popupmenupart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTablePopupmenuPart" label="Popup Menu Part">
+          <menus xsi:type="menu:PopupMenu" xmi:id="_jfEAkLqEEea5N61WkxPVmA" elementId="com.vogella.nattable.popupmenu">
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_kjKh4LqEEea5N61WkxPVmA" elementId="com.vogella.nattable.handledmenuitem.0" command="_mKWiILqEEea5N61WkxPVmA"/>
+          </menus>
+        </children>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
@@ -14,6 +19,8 @@
       </children>
     </trimBars>
   </children>
+  <handlers xmi:id="_of6EQLqEEea5N61WkxPVmA" elementId="com.vogella.nattable.handler.popupmenu" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.handler.PopupMenuHandler" command="_mKWiILqEEea5N61WkxPVmA"/>
+  <commands xmi:id="_mKWiILqEEea5N61WkxPVmA" elementId="com.vogella.nattable.command.popupmenu" commandName="Popupmenu"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
