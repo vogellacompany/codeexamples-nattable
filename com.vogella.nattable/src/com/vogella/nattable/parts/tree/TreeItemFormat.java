@@ -3,8 +3,8 @@ package com.vogella.nattable.parts.tree;
 import java.util.Comparator;
 import java.util.List;
 
-import com.vogella.model.Todo;
-import com.vogella.model.TreeItem;
+import com.vogella.model.todo.Todo;
+import com.vogella.model.tree.TreeItem;
 
 import ca.odell.glazedlists.TreeList;
 

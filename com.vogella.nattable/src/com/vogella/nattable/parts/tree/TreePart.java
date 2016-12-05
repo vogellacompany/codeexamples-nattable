@@ -34,9 +34,9 @@ import org.eclipse.nebula.widgets.nattable.tree.config.TreeLayerExpandCollapseKe
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import com.vogella.model.Todo;
-import com.vogella.model.TodoService;
-import com.vogella.model.TreeItem;
+import com.vogella.model.todo.Todo;
+import com.vogella.model.todo.TodoService;
+import com.vogella.model.tree.TreeItem;
 
 public class TreePart {
 

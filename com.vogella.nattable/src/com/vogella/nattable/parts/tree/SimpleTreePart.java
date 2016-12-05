@@ -12,11 +12,15 @@ import org.eclipse.nebula.widgets.nattable.extension.glazedlists.tree.GlazedList
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.tree.TreeLayer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
-import com.vogella.model.Todo;
-import com.vogella.model.TodoService;
-import com.vogella.model.TreeItem;
+import com.vogella.model.todo.Todo;
+import com.vogella.model.todo.TodoService;
+import com.vogella.model.tree.TreeItem;
 
 import ca.odell.glazedlists.EventList;
 import ca.odell.glazedlists.GlazedLists;
@@ -28,7 +32,7 @@ public class SimpleTreePart {
 	public void createComposite(Composite parent, TodoService todoService) {
 		// Properties of the Todo items inside the TreeItems
 		String[] propertyNames = { "item.summary", "item.description" };
-
+		
 		IColumnPropertyAccessor<TreeItem<Todo>> columnPropertyAccessor = new ExtendedReflectiveColumnPropertyAccessor<TreeItem<Todo>>(
 				propertyNames);
 
