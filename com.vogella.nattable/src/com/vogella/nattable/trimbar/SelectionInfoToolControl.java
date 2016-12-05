@@ -6,6 +6,8 @@ import javax.inject.Named;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -17,7 +19,10 @@ public class SelectionInfoToolControl {
 
 	@PostConstruct
 	public void createGui(Composite parent) {
-		label = new Label(parent, SWT.NONE);
+		Composite container = new Composite(parent, SWT.NONE);
+		GridLayoutFactory.fillDefaults().applyTo(container);
+		label = new Label(container, SWT.NONE);
+		GridDataFactory.fillDefaults().grab(true, true).hint(SWT.DEFAULT, 20).applyTo(label);
 	}
 	
 	

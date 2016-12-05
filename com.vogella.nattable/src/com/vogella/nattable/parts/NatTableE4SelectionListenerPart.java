@@ -1,4 +1,3 @@
-
 package com.vogella.nattable.parts;
 
 import javax.annotation.PostConstruct;

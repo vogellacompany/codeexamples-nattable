@@ -3,7 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.window.main" label="vogella NatTable" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_PYpQcLp6Eea5N61WkxPVmA" elementId="com.vogella.nattable.part.nattabledataexample" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTableDataExamplePart" label="NatTable Data Example"/>
+        <children xsi:type="basic:Part" xmi:id="_PYpQcLp6Eea5N61WkxPVmA" elementId="com.vogella.nattable.part.nattabledataexample" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTableE4SelectionListenerPart" label="NatTable E4 Selection Example"/>
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.part.tree" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.tree.SimpleTreePart" label="Simple Tree Part"/>
         <children xsi:type="basic:Part" xmi:id="_n5S7QLbWEea5WYNV8oR5hA" elementId="com.vogella.nattable.part.tree" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.tree.TreePart" label="Tree Part"/>
       </children>
