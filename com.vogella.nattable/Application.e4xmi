@@ -11,6 +11,7 @@
             <children xsi:type="menu:HandledMenuItem" xmi:id="_kjKh4LqEEea5N61WkxPVmA" elementId="com.vogella.nattable.handledmenuitem.0" command="_mKWiILqEEea5N61WkxPVmA"/>
           </menus>
         </children>
+        <children xsi:type="basic:Part" xmi:id="_zeEZQL4ZEea7uqJWvq9ihQ" elementId="com.vogella.nattable.part.simple" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SimplePart" label="Simple"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
