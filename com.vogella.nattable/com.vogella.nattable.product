@@ -17,6 +17,7 @@
 
    <plugins>
       <plugin id="ca.odell.glazedlists"/>
+      <plugin id="com.google.gson"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="com.vogella.model"/>
       <plugin id="com.vogella.model.service"/>

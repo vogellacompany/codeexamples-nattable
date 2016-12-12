@@ -11,5 +11,5 @@ public class SimplePart {
 	@PostConstruct
 	public void postConstruct(Composite parent) {
 		new NatTable(parent);
-	}	
+	}
 }
