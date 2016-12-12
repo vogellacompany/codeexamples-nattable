@@ -13,6 +13,7 @@
         </children>
         <children xsi:type="basic:Part" xmi:id="_zeEZQL4ZEea7uqJWvq9ihQ" elementId="com.vogella.nattable.part.simple" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SimplePart" label="Simple"/>
         <children xsi:type="basic:Part" xmi:id="_rQc20L_2EeaModvQm4pjOg" elementId="com.vogella.nattable.part.gson" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.GsonPart" label="GSON"/>
+        <children xsi:type="basic:Part" xmi:id="_GDqOoMB7EeacVfiy9tajcg" elementId="com.vogella.nattable.part.simpledatalayer" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SimpleDataLayerPart" label="Simple DataLayer"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
