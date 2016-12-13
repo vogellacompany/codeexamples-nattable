@@ -15,6 +15,7 @@
         <children xsi:type="basic:Part" xmi:id="_rQc20L_2EeaModvQm4pjOg" elementId="com.vogella.nattable.part.gson" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.GsonPart" label="GSON"/>
         <children xsi:type="basic:Part" xmi:id="_GDqOoMB7EeacVfiy9tajcg" elementId="com.vogella.nattable.part.simpledatalayer" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SimpleDataLayerPart" label="Simple DataLayer"/>
         <children xsi:type="basic:Part" xmi:id="_HqEuoMCCEeacVfiy9tajcg" elementId="com.vogella.nattable.part.arraydataproviderpart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.ArrayDataProviderPart" label="ArrayDataProviderPart"/>
+        <children xsi:type="basic:Part" xmi:id="_IJpjwMDIEeacVfiy9tajcg" elementId="com.vogella.nattable.part.rowselection" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.RowSelectionPart" label="Row Selection"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
