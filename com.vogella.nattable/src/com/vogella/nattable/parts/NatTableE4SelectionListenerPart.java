@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.nebula.widgets.nattable.NatTable;
-import org.eclipse.nebula.widgets.nattable.config.DefaultNatTableStyleConfiguration;
 import org.eclipse.nebula.widgets.nattable.data.IColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IRowDataProvider;
 import org.eclipse.nebula.widgets.nattable.data.ListDataProvider;
@@ -43,10 +42,7 @@ public class NatTableE4SelectionListenerPart {
 		ViewportLayer viewportLayer = new ViewportLayer(selectionLayer);
 		viewportLayer.setRegionName(GridRegion.BODY);
 
-		final NatTable natTable = new NatTable(parent, viewportLayer, false);
-		natTable.addConfiguration(new DefaultNatTableStyleConfiguration());
-		
-		natTable.configure();
+		NatTable natTable = new NatTable(parent, viewportLayer);
 
 		GridDataFactory.fillDefaults().grab(true, true).applyTo(natTable);
 	}
