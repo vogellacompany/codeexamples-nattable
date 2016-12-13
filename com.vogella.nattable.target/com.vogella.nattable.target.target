@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="NatTable Target" sequenceNumber="14">
+<?pde version="3.8"?><target name="NatTable Target" sequenceNumber="15">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-<unit id="com.vogella.model.feature.feature.group" version="1.0.0.201612130240"/>
-<unit id="com.vogella.model.feature.source.feature.group" version="1.0.0.201612130240"/>
+<unit id="com.vogella.model.feature.feature.group" version="1.0.0.201612131227"/>
+<unit id="com.vogella.model.feature.source.feature.group" version="1.0.0.201612131227"/>
 <repository location="https://dl.bintray.com/vogellacompany/codeexamples-javadatamodel/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">

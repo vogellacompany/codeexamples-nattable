@@ -1,6 +1,5 @@
 package com.vogella.nattable.parts;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -38,14 +37,8 @@ public class SortHeaderPart {
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
 
-		String[] propertyNames = { "firstName", "lastName", "gender", "married", "birthday" };
-
-		Map<String, String> propertyToLabelMap = new HashMap<>();
-		propertyToLabelMap.put("firstName", "Firstname");
-		propertyToLabelMap.put("lastName", "Lastname");
-		propertyToLabelMap.put("gender", "Gender");
-		propertyToLabelMap.put("married", "Married");
-		propertyToLabelMap.put("birthday", "Birthday");
+		String[] propertyNames = personService.getDefaultPropertyNames();
+		Map<String, String> propertyToLabelMap = personService.getDefaultPropertyToLabelMap();
 
 		ConfigRegistry configRegistry = new ConfigRegistry();
 
