@@ -8,7 +8,7 @@ import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
-import com.vogella.nattable.TwoDimensionalArrayDataProvider;
+import com.vogella.nattable.data.TwoDimensionalArrayDataProvider;
 
 public class ArrayDataProviderPart {
 

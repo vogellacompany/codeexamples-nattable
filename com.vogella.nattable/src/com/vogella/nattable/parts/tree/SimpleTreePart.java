@@ -12,11 +12,7 @@ import org.eclipse.nebula.widgets.nattable.extension.glazedlists.tree.GlazedList
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.tree.TreeLayer;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 
 import com.vogella.model.todo.Todo;
 import com.vogella.model.todo.TodoService;

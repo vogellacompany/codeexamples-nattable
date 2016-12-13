@@ -28,9 +28,9 @@ import org.osgi.framework.FrameworkUtil;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.vogella.nattable.JsonColumnAccessor;
-import com.vogella.nattable.JsonColumnHeaderDataProvider;
-import com.vogella.nattable.JsonDataProvider;
+import com.vogella.nattable.data.JsonColumnAccessor;
+import com.vogella.nattable.data.JsonColumnHeaderDataProvider;
+import com.vogella.nattable.data.JsonDataProvider;
 
 public class GsonPart {
 

@@ -1,4 +1,4 @@
-package com.vogella.nattable;
+package com.vogella.nattable.data;
 
 import java.io.Reader;
 import java.util.Iterator;

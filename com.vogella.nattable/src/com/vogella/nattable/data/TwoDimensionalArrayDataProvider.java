@@ -1,4 +1,4 @@
-package com.vogella.nattable;
+package com.vogella.nattable.data;
 
 import org.eclipse.nebula.widgets.nattable.data.IDataProvider;
 
