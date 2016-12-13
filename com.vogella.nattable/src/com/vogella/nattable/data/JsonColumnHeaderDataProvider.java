@@ -1,15 +1,12 @@
 package com.vogella.nattable.data;
 
 import java.io.Reader;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import org.eclipse.nebula.widgets.nattable.data.IColumnAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IDataProvider;
-import org.eclipse.nebula.widgets.nattable.data.IRowDataProvider;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
