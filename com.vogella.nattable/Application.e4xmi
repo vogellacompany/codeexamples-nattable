@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.window.main" label="vogella NatTable" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.window.main" label="vogella NatTable" width="800" height="500">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_PYpQcLp6Eea5N61WkxPVmA" elementId="com.vogella.nattable.part.nattabledataexample" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTableE4SelectionListenerPart" label="NatTable E4 Selection Example"/>
@@ -16,6 +16,7 @@
         <children xsi:type="basic:Part" xmi:id="_GDqOoMB7EeacVfiy9tajcg" elementId="com.vogella.nattable.part.simpledatalayer" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SimpleDataLayerPart" label="Simple DataLayer"/>
         <children xsi:type="basic:Part" xmi:id="_HqEuoMCCEeacVfiy9tajcg" elementId="com.vogella.nattable.part.arraydataproviderpart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.ArrayDataProviderPart" label="ArrayDataProviderPart"/>
         <children xsi:type="basic:Part" xmi:id="_IJpjwMDIEeacVfiy9tajcg" elementId="com.vogella.nattable.part.rowselection" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.RowSelectionPart" label="Row Selection"/>
+        <children xsi:type="basic:Part" xmi:id="_BJQrwMEsEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.sortheader" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SortHeaderPart" label="Sort Header"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
