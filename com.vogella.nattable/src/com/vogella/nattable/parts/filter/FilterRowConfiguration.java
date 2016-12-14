@@ -43,6 +43,9 @@ class FilterRowConfiguration extends AbstractRegistryConfiguration {
 		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
 				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
 
+		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_MATCHING_MODE, TextMatchingMode.EXACT,
+				DisplayMode.NORMAL, FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
+
 		// register a combo box cell editor for the married column in the
 		// filter row the label is set automatically to the value of
 		// FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + column
@@ -50,9 +53,6 @@ class FilterRowConfiguration extends AbstractRegistryConfiguration {
 		comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Boolean.TRUE, Boolean.FALSE));
 		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
 				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 3);
-
-		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_MATCHING_MODE, TextMatchingMode.EXACT,
-				DisplayMode.NORMAL, FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
 
 		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_DELIMITER, "&"); //$NON-NLS-1$
 
