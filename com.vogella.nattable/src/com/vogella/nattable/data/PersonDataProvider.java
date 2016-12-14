@@ -1,10 +1,12 @@
 package com.vogella.nattable.data;
 
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.nebula.widgets.nattable.data.IDataProvider;
 
 import com.vogella.model.person.Person;
+import com.vogella.model.person.Person.Gender;
 
 public class PersonDataProvider implements IDataProvider {
 
@@ -34,7 +36,26 @@ public class PersonDataProvider implements IDataProvider {
 
 	@Override
 	public void setDataValue(int columnIndex, int rowIndex, Object newValue) {
-		// similar to getDataValue()
+		Person person = persons.get(rowIndex);
+		switch (columnIndex) {
+		case 0:
+			String firstName = String.valueOf(newValue);
+			person.setFirstName(firstName);
+			break;
+		case 1:
+			String lastName = String.valueOf(newValue);
+			person.setLastName(lastName);
+			break;
+		case 2:
+			person.setGender((Gender) newValue);
+			break;
+		case 3:
+			person.setMarried((boolean) newValue);
+			break;
+		case 4:
+			person.setBirthday((Date) newValue);
+			break;
+		}
 	}
 
 	@Override
