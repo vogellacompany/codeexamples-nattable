@@ -1,4 +1,4 @@
-package com.vogella.nattable.parts;
+package com.vogella.nattable.parts.sort;
 
 import java.util.Map;
 

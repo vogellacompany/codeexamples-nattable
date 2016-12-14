@@ -1,4 +1,4 @@
-package com.vogella.nattable.parts;
+package com.vogella.nattable.parts.filter;
 
 import java.util.Map;
 
