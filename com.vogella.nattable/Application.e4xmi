@@ -22,6 +22,7 @@
         <children xsi:type="basic:Part" xmi:id="_l0QkEMHcEeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.simpleeditor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.SimpleEditor" label="Simple Editor"/>
         <children xsi:type="basic:Part" xmi:id="_XusZwMHrEeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.advancededitor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.AdvancedEditor" label="Advanced Editor"/>
         <children xsi:type="basic:Part" xmi:id="_vSLIAMI0EeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.eventlist" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.glazedlists.EventListPart" label="Event List"/>
+        <children xsi:type="basic:Part" xmi:id="_2MlWkMJOEeafLOGUC4b-zQ" elementId="com.vogella.nattable.part.observableelementlist" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.glazedlists.BeanObservableEventListPart" label="Observable Element List"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
