@@ -19,6 +19,7 @@
         <children xsi:type="basic:Part" xmi:id="_BJQrwMEsEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.sortheader" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.SortHeaderPart" label="Sort Header"/>
         <children xsi:type="basic:Part" xmi:id="_005YUMFFEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.configpart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.ConfigurationPart" label="Config Part"/>
         <children xsi:type="basic:Part" xmi:id="_a6bHcMFSEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.filterheader" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.FilterHeaderPart" label="Filter Header"/>
+        <children xsi:type="basic:Part" xmi:id="_l0QkEMHcEeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.simpleeditor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.SimpleEditor" label="Simple Editor"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
