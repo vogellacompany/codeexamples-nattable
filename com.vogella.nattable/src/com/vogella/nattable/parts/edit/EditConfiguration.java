@@ -2,9 +2,12 @@ package com.vogella.nattable.parts.edit;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
+import org.eclipse.jface.bindings.keys.KeyStroke;
+import org.eclipse.jface.fieldassist.SimpleContentProposalProvider;
+import org.eclipse.jface.fieldassist.TextContentAdapter;
 import org.eclipse.nebula.widgets.nattable.config.AbstractRegistryConfiguration;
 import org.eclipse.nebula.widgets.nattable.config.CellConfigAttributes;
 import org.eclipse.nebula.widgets.nattable.config.IConfigRegistry;
@@ -20,8 +23,10 @@ import org.eclipse.nebula.widgets.nattable.layer.cell.ColumnLabelAccumulator;
 import org.eclipse.nebula.widgets.nattable.painter.cell.CheckBoxPainter;
 import org.eclipse.nebula.widgets.nattable.painter.cell.ComboBoxPainter;
 import org.eclipse.nebula.widgets.nattable.style.DisplayMode;
+import org.eclipse.swt.SWT;
 
 import com.vogella.model.person.Person.Gender;
+import com.vogella.model.person.PersonService;
 
 public class EditConfiguration extends AbstractRegistryConfiguration {
 
@@ -42,38 +47,37 @@ public class EditConfiguration extends AbstractRegistryConfiguration {
 	private void registerLastNameEditor(IConfigRegistry configRegistry, int columnIndex) {
 		// register a TextCellEditor for column two that commits on key up/down
 		// moves the selection after commit by enter
-		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, new TextCellEditor(true, true),
-				DisplayMode.NORMAL, ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
-	
+		TextCellEditor textCellEditor = new TextCellEditor(true, true);
+		// add content proposals for the last names
+		SimpleContentProposalProvider contentProposalProvider = new SimpleContentProposalProvider(
+				PersonService.lastNames);
+		textCellEditor.enableContentProposal(new TextContentAdapter(), contentProposalProvider,
+				KeyStroke.getInstance(SWT.CTRL, SWT.SPACE), null);
+		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, textCellEditor, DisplayMode.NORMAL,
+				ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
+
 		// configure to open the adjacent editor after commit
 		configRegistry.registerConfigAttribute(EditConfigAttributes.OPEN_ADJACENT_EDITOR, Boolean.TRUE,
 				DisplayMode.EDIT, ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
 	}
 
 	private void registerGenderEditor(IConfigRegistry configRegistry, int columnIndex) {
-		ArrayList<Gender> gender = new ArrayList<>();
-		gender.add(Gender.FEMALE);
-		gender.add(Gender.MALE);
-		// register a combobox for the city names
-		ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(gender, -1);
+		ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Gender.FEMALE, Gender.MALE));
 		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.EDIT,
 				ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
-	
+
 		configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_PAINTER, new ComboBoxPainter(),
 				DisplayMode.NORMAL, ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
 	}
 
 	private void registerMarriedEditor(IConfigRegistry configRegistry, int columnIndex) {
-		// register a CheckBoxCellEditor for column three
 		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, new CheckBoxCellEditor(),
 				DisplayMode.EDIT, ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
-	
-		// if you want to use the CheckBoxCellEditor, you should also consider
-		// using the corresponding CheckBoxPainter to show the content like a
-		// checkbox in your NatTable
+
+		// The CheckBoxCellEditor can also be visualized like a check button
 		configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_PAINTER, new CheckBoxPainter(),
 				DisplayMode.NORMAL, ColumnLabelAccumulator.COLUMN_LABEL_PREFIX + columnIndex);
-	
+
 		// using a CheckBoxCellEditor also needs a Boolean conversion to work
 		// correctly
 		configRegistry.registerConfigAttribute(CellConfigAttributes.DISPLAY_CONVERTER,
