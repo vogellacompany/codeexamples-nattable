@@ -30,6 +30,7 @@ public class SimpleEditor {
 		ListDataProvider<Person> dataProvider = new ListDataProvider<>(persons, columnPropertyAccessor);
 
 		PersonHeaderDataProvider headerDataProvider = new PersonHeaderDataProvider();
+
 		DefaultGridLayer gridLayer = new DefaultGridLayer(dataProvider, headerDataProvider);
 
 		NatTable natTable = new NatTable(parent, gridLayer, false);

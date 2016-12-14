@@ -27,11 +27,14 @@ public class AdvancedEditor {
 		PersonHeaderDataProvider headerDataProvider = new PersonHeaderDataProvider();
 		DefaultGridLayer gridLayer = new DefaultGridLayer(dataProvider, headerDataProvider);
 
+		// Apply a ColumnLabelAccumulator to address the columns in the
+		// EditConfiguration class
 		ColumnLabelAccumulator columnLabelAccumulator = new ColumnLabelAccumulator(dataProvider);
 		((DataLayer) gridLayer.getBodyDataLayer()).setConfigLabelAccumulator(columnLabelAccumulator);
 
 		NatTable natTable = new NatTable(parent, gridLayer, false);
 		natTable.addConfiguration(new DefaultNatTableStyleConfiguration());
+		// add the EditConfiguration to enable editing support
 		natTable.addConfiguration(new EditConfiguration());
 
 		natTable.configure();
