@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.window.main" label="vogella NatTable" width="800" height="500">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.window.main" label="vogella NatTable" width="900" height="500">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.vogella.nattable.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_PYpQcLp6Eea5N61WkxPVmA" elementId="com.vogella.nattable.part.nattabledataexample" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.NatTableE4SelectionListenerPart" label="NatTable E4 Selection Example"/>
@@ -20,7 +20,9 @@
         <children xsi:type="basic:Part" xmi:id="_005YUMFFEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.configpart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.ConfigurationPart" label="Config"/>
         <children xsi:type="basic:Part" xmi:id="_a6bHcMFSEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.filterheader" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.filter.FilterHeaderPart" label="Filter Header"/>
         <children xsi:type="basic:Part" xmi:id="_l0QkEMHcEeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.simpleeditor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.SimpleEditor" label="Simple Editor"/>
+        <children xsi:type="basic:Part" xmi:id="_Z9yyUMJeEeafLOGUC4b-zQ" elementId="com.vogella.nattable.part.dialogeditor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.DialogEditor" label="Dialog Editor"/>
         <children xsi:type="basic:Part" xmi:id="_XusZwMHrEeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.advancededitor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.AdvancedEditor" label="Advanced Editor"/>
+        <children xsi:type="basic:Part" xmi:id="_eOP3sMJaEeafLOGUC4b-zQ" elementId="com.vogella.nattable.part.validatingeditor" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.edit.ValidatingEditor" label="Validating Editor"/>
         <children xsi:type="basic:Part" xmi:id="_vSLIAMI0EeaIQ7pjZrXeYQ" elementId="com.vogella.nattable.part.eventlist" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.glazedlists.EventListPart" label="Event List"/>
         <children xsi:type="basic:Part" xmi:id="_2MlWkMJOEeafLOGUC4b-zQ" elementId="com.vogella.nattable.part.observableelementlist" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.glazedlists.BeanObservableEventListPart" label="Observable Element List"/>
       </children>
