@@ -16,20 +16,18 @@ public class SelectionInfoToolControl {
 
 	private Label label;
 
-
 	@PostConstruct
 	public void createGui(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayoutFactory.fillDefaults().applyTo(container);
 		label = new Label(container, SWT.NONE);
-		GridDataFactory.fillDefaults().grab(true, true).hint(SWT.DEFAULT, 20).applyTo(label);
+		GridDataFactory.fillDefaults().grab(true, true).hint(200, 20).applyTo(label);
 	}
-	
-	
+
 	@Inject
 	@Optional
 	public void setSelection(@Named(IServiceConstants.ACTIVE_SELECTION) Object selection) {
-		if(label != null && !label.isDisposed()) {
+		if (label != null && !label.isDisposed()) {
 			label.setText(String.valueOf(selection));
 		}
 	}
