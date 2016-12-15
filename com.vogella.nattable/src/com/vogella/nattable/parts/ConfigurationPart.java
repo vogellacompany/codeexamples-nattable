@@ -26,7 +26,7 @@ import com.vogella.nattable.data.PersonDataProvider;
 
 public class ConfigurationPart {
 
-	private static final String TOP_RIGHT_CORNER = "TopRightCorner";
+	private static final String TOP_LEFT_CORNER = "TopRightCorner";
 
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
@@ -36,7 +36,7 @@ public class ConfigurationPart {
 
 		bodyDataLayer.setConfigLabelAccumulator((configLabels, columnPosition, rowPosition) -> {
 			if (columnPosition == 0 && rowPosition == 0)
-				configLabels.addLabel(TOP_RIGHT_CORNER);
+				configLabels.addLabel(TOP_LEFT_CORNER);
 		});
 		bodyDataLayer.setRegionName(GridRegion.BODY);
 
@@ -49,7 +49,7 @@ public class ConfigurationPart {
 			public void configureRegistry(IConfigRegistry configRegistry) {
 				ConfigAttribute<String> configAttribute = new ConfigAttribute<>();
 				String useless = "useless";
-				configRegistry.registerConfigAttribute(configAttribute, useless, DisplayMode.NORMAL, TOP_RIGHT_CORNER);
+				configRegistry.registerConfigAttribute(configAttribute, useless, DisplayMode.NORMAL, TOP_LEFT_CORNER);
 			}
 		});
 
@@ -58,7 +58,7 @@ public class ConfigurationPart {
 			@Override
 			public void configureUiBindings(UiBindingRegistry uiBindingRegistry) {
 				uiBindingRegistry.registerDoubleClickBinding(new CellLabelMouseEventMatcher(GridRegion.BODY,
-						MouseEventMatcher.LEFT_BUTTON, TOP_RIGHT_CORNER), (table, event) -> {
+						MouseEventMatcher.LEFT_BUTTON, TOP_LEFT_CORNER), (table, event) -> {
 							MessageDialog.openInformation(parent.getShell(), "CellLabelMouseEventMatcher",
 									"You double clicked on a cell with the TopRightCorner label.");
 						});
