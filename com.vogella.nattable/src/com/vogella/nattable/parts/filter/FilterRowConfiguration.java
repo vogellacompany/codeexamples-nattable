@@ -22,6 +22,41 @@ class FilterRowConfiguration extends AbstractRegistryConfiguration {
 	@Override
 	public void configureRegistry(IConfigRegistry configRegistry) {
 
+		firstNameFilterConfig(configRegistry);
+
+		genderFilterConfig(configRegistry);
+
+		marriedFilterConfig(configRegistry);
+
+		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_DELIMITER, "&"); //$NON-NLS-1$
+
+	}
+
+	private void marriedFilterConfig(IConfigRegistry configRegistry) {
+		// register a combo box cell editor for the married column in the
+		// filter row the label is set automatically to the value of
+		// FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + column
+		// position
+		ICellEditor comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Boolean.TRUE, Boolean.FALSE));
+		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
+				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 3);
+	}
+
+	private void genderFilterConfig(IConfigRegistry configRegistry) {
+		// register a combo box cell editor for the gender column in the
+		// filter row the label is set automatically to the value of
+		// FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + column
+		// position
+		ComboBoxCellEditor comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Gender.FEMALE, Gender.MALE));
+		comboBoxCellEditor.setShowDropdownFilter(true);
+		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
+				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
+
+		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_MATCHING_MODE, TextMatchingMode.EXACT,
+				DisplayMode.NORMAL, FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
+	}
+
+	private void firstNameFilterConfig(IConfigRegistry configRegistry) {
 		// register the FilterRowTextCellEditor in the first column which
 		// immediately commits on key press
 		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, new FilterRowTextCellEditor(),
@@ -34,27 +69,5 @@ class FilterRowConfiguration extends AbstractRegistryConfiguration {
 		configRegistry.registerConfigAttribute(CellConfigAttributes.DISPLAY_CONVERTER,
 				new FilterRowRegularExpressionConverter(), DisplayMode.NORMAL,
 				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 0);
-
-		// register a combo box cell editor for the gender column in the
-		// filter row the label is set automatically to the value of
-		// FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + column
-		// position
-		ICellEditor comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Gender.FEMALE, Gender.MALE));
-		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
-				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
-
-		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_MATCHING_MODE, TextMatchingMode.EXACT,
-				DisplayMode.NORMAL, FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 2);
-
-		// register a combo box cell editor for the married column in the
-		// filter row the label is set automatically to the value of
-		// FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + column
-		// position
-		comboBoxCellEditor = new ComboBoxCellEditor(Arrays.asList(Boolean.TRUE, Boolean.FALSE));
-		configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboBoxCellEditor, DisplayMode.NORMAL,
-				FilterRowDataLayer.FILTER_ROW_COLUMN_LABEL_PREFIX + 3);
-
-		configRegistry.registerConfigAttribute(FilterRowConfigAttributes.TEXT_DELIMITER, "&"); //$NON-NLS-1$
-
 	}
 }
