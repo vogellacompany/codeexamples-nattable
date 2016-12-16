@@ -7,10 +7,8 @@ import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.nebula.widgets.nattable.NatTable;
 import org.eclipse.nebula.widgets.nattable.config.AbstractUiBindingConfiguration;
 import org.eclipse.nebula.widgets.nattable.config.DefaultNatTableStyleConfiguration;
-import org.eclipse.nebula.widgets.nattable.data.IColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IRowDataProvider;
 import org.eclipse.nebula.widgets.nattable.data.ListDataProvider;
-import org.eclipse.nebula.widgets.nattable.data.ReflectiveColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.selection.SelectionLayer;
@@ -26,18 +24,15 @@ import org.eclipse.swt.widgets.Menu;
 
 import com.vogella.model.person.Person;
 import com.vogella.model.person.PersonService;
+import com.vogella.nattable.data.PersonColumnPropertyAccessor;
 
 public class NatTablePopupmenuPart {
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService, EMenuService menuService) {
 		parent.setLayout(new GridLayout());
 
-		String[] propertyNames = { "firstName", "lastName", "gender", "married", "birthday" };
-
-		IColumnPropertyAccessor<Person> columnPropertyAccessor = new ReflectiveColumnPropertyAccessor<Person>(
-				propertyNames);
 		IRowDataProvider<Person> bodyDataProvider = new ListDataProvider<Person>(personService.getPersons(10),
-				columnPropertyAccessor);
+				new PersonColumnPropertyAccessor());
 
 		final DataLayer bodyDataLayer = new DataLayer(bodyDataProvider);
 		SelectionLayer selectionLayer = new SelectionLayer(bodyDataLayer);
@@ -62,8 +57,10 @@ public class NatTablePopupmenuPart {
 				// add NatTable menu items and register the DisposeListener
 				new PopupMenuBuilder(natTable, e4Menu).build();
 
-				// uncomment this to automatically add an inspection command to the view
-				// new PopupMenuBuilder(natTable, e4Menu).withInspectLabelsMenuItem().build();
+				// uncomment this to automatically add an inspection command to
+				// the view
+				// new PopupMenuBuilder(natTable,
+				// e4Menu).withInspectLabelsMenuItem().build();
 
 				// register the UI binding
 				uiBindingRegistry.registerMouseDownBinding(

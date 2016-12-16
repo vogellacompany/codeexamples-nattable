@@ -1,7 +1,5 @@
 package com.vogella.nattable.parts.sort;
 
-import java.util.Map;
-
 import javax.annotation.PostConstruct;
 
 import org.eclipse.nebula.widgets.nattable.NatTable;
@@ -10,7 +8,6 @@ import org.eclipse.nebula.widgets.nattable.config.DefaultNatTableStyleConfigurat
 import org.eclipse.nebula.widgets.nattable.data.IColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IDataProvider;
 import org.eclipse.nebula.widgets.nattable.data.ListDataProvider;
-import org.eclipse.nebula.widgets.nattable.data.ReflectiveColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.extension.glazedlists.GlazedListsSortModel;
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.grid.data.DefaultColumnHeaderDataProvider;
@@ -27,6 +24,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.vogella.model.person.Person;
 import com.vogella.model.person.PersonService;
+import com.vogella.nattable.data.PersonColumnPropertyAccessor;
 
 import ca.odell.glazedlists.EventList;
 import ca.odell.glazedlists.GlazedLists;
@@ -37,22 +35,20 @@ public class SortHeaderPart {
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
 
-		String[] propertyNames = personService.getDefaultPropertyNames();
-		Map<String, String> propertyToLabelMap = personService.getDefaultPropertyToLabelMap();
-
 		ConfigRegistry configRegistry = new ConfigRegistry();
 
 		EventList<Person> persons = GlazedLists.eventList(personService.getPersons(10));
 		SortedList<Person> sortedList = new SortedList<>(persons, null);
 
-		IColumnPropertyAccessor<Person> accessor = new ReflectiveColumnPropertyAccessor<>(propertyNames);
+		IColumnPropertyAccessor<Person> accessor = new PersonColumnPropertyAccessor();
 		IDataProvider bodyDataProvider = new ListDataProvider<>(sortedList, accessor);
 		DataLayer bodyDataLayer = new DataLayer(bodyDataProvider);
 
 		SelectionLayer selectionLayer = new SelectionLayer(bodyDataLayer);
 		ViewportLayer viewportLayer = new ViewportLayer(selectionLayer);
 
-		IDataProvider columnHeaderDataProvider = new DefaultColumnHeaderDataProvider(propertyNames, propertyToLabelMap);
+		IDataProvider columnHeaderDataProvider = new DefaultColumnHeaderDataProvider(
+				personService.getDefaultPropertyNames(), personService.getDefaultPropertyToLabelMap());
 		DataLayer columnHeaderDataLayer = new DefaultColumnHeaderDataLayer(columnHeaderDataProvider);
 		ILayer columnHeaderLayer = new ColumnHeaderLayer(columnHeaderDataLayer, viewportLayer, selectionLayer);
 

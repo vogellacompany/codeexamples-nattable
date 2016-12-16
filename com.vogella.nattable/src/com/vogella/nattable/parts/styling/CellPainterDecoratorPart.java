@@ -15,10 +15,8 @@ import org.eclipse.nebula.widgets.nattable.config.AbstractRegistryConfiguration;
 import org.eclipse.nebula.widgets.nattable.config.CellConfigAttributes;
 import org.eclipse.nebula.widgets.nattable.config.DefaultNatTableStyleConfiguration;
 import org.eclipse.nebula.widgets.nattable.config.IConfigRegistry;
-import org.eclipse.nebula.widgets.nattable.data.IColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IRowDataProvider;
 import org.eclipse.nebula.widgets.nattable.data.ListDataProvider;
-import org.eclipse.nebula.widgets.nattable.data.ReflectiveColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.layer.cell.ColumnLabelAccumulator;
 import org.eclipse.nebula.widgets.nattable.painter.cell.ImagePainter;
@@ -32,6 +30,7 @@ import org.osgi.framework.FrameworkUtil;
 
 import com.vogella.model.person.Person;
 import com.vogella.model.person.PersonService;
+import com.vogella.nattable.data.PersonColumnPropertyAccessor;
 
 public class CellPainterDecoratorPart {
 
@@ -40,12 +39,8 @@ public class CellPainterDecoratorPart {
 
 		ResourceManager resourceManager = new LocalResourceManager(JFaceResources.getResources(), parent);
 
-		String[] propertyNames = { "firstName", "lastName", "gender", "married", "birthday" };
-
-		IColumnPropertyAccessor<Person> columnPropertyAccessor = new ReflectiveColumnPropertyAccessor<Person>(
-				propertyNames);
 		IRowDataProvider<Person> bodyDataProvider = new ListDataProvider<Person>(personService.getPersons(10),
-				columnPropertyAccessor);
+				new PersonColumnPropertyAccessor());
 
 		DataLayer bodyDataLayer = new DataLayer(bodyDataProvider);
 

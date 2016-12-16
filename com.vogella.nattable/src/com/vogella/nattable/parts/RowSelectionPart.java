@@ -2,19 +2,15 @@
 package com.vogella.nattable.parts;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.nebula.widgets.nattable.NatTable;
 import org.eclipse.nebula.widgets.nattable.coordinate.Range;
-import org.eclipse.nebula.widgets.nattable.data.IColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.data.IRowDataProvider;
 import org.eclipse.nebula.widgets.nattable.data.ListDataProvider;
-import org.eclipse.nebula.widgets.nattable.data.ReflectiveColumnPropertyAccessor;
 import org.eclipse.nebula.widgets.nattable.grid.GridRegion;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.selection.RowSelectionModel;
@@ -29,31 +25,20 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.vogella.model.person.Person;
 import com.vogella.model.person.PersonService;
+import com.vogella.nattable.data.PersonColumnPropertyAccessor;
 
 public class RowSelectionPart {
 
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
 
-		String[] propertyNames = { "firstName", "lastName", "gender", "married", "birthday" };
-
-		Map<String, String> propertyToLabelMap = new HashMap<>();
-		propertyToLabelMap.put("firstName", "Firstname");
-		propertyToLabelMap.put("lastName", "Lastname");
-		propertyToLabelMap.put("gender", "Gender");
-		propertyToLabelMap.put("married", "Married");
-		propertyToLabelMap.put("birthday", "Birthday");
-
-		IColumnPropertyAccessor<Person> columnPropertyAccessor = new ReflectiveColumnPropertyAccessor<>(propertyNames);
-
 		List<Person> data = personService.getPersons(10);
-
-		IRowDataProvider<Person> bodyDataProvider = new ListDataProvider<>(data, columnPropertyAccessor);
+		IRowDataProvider<Person> bodyDataProvider = new ListDataProvider<>(data, new PersonColumnPropertyAccessor());
 		DataLayer bodyDataLayer = new DataLayer(bodyDataProvider);
 
 		SelectionLayer selectionLayer = new SelectionLayer(bodyDataLayer);
-		selectionLayer.setSelectionModel(
-				new RowSelectionModel<>(selectionLayer, bodyDataProvider, person -> person.getId()));
+		selectionLayer
+				.setSelectionModel(new RowSelectionModel<>(selectionLayer, bodyDataProvider, person -> person.getId()));
 		RowSelectionProvider<Person> rowSelectionProvider = new RowSelectionProvider<>(selectionLayer,
 				bodyDataProvider);
 		rowSelectionProvider.addSelectionChangedListener(selectionChangeEvent -> {
