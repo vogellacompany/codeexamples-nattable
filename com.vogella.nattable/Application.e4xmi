@@ -29,6 +29,7 @@
         <children xsi:type="basic:Part" xmi:id="_005YUMFFEeaYrKQLfV7fuw" elementId="com.vogella.nattable.part.configpart" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.ConfigurationPart" label="Config"/>
         <children xsi:type="basic:Part" xmi:id="_1gOV4MMJEeaP6oWOgL-fJg" elementId="com.vogella.nattable.part.css" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.styling.CssPart" label="CSS"/>
         <children xsi:type="basic:Part" xmi:id="_krK3wMMeEeaSQ84BQkMVOw" elementId="com.vogella.nattable.part.cellpainterdecorator" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.styling.CellPainterDecoratorPart" label="CellPainterDecorator"/>
+        <children xsi:type="basic:Part" xmi:id="_piVN0MOIEea86PK40aym_A" elementId="com.vogella.nattable.part.dnd" contributionURI="bundleclass://com.vogella.nattable/com.vogella.nattable.parts.dnd.DnDPart" label="DnD"/>
       </children>
     </children>
     <trimBars xmi:id="_E_nVMLp8Eea5N61WkxPVmA" elementId="com.vogella.nattable.trimbar.0" side="Bottom">
