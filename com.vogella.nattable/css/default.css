@@ -1,0 +1,23 @@
+NatTable {
+	 color: blue;
+}
+
+.cssVogella {
+	 cell-background-color: #00FF00;
+	 background-color: #00FF00;
+}
+
+.cssVogella .thirdRow {
+	 cell-background-color: #FF9900;
+	 color: lime;
+}
+
+.cssVogella .COLUMN_1 {
+	 cell-background-color: #FF0000;
+}
+
+.cssVogella .thirdRow.COLUMN_1 {
+	 cell-background-color: blue;
+	 color: white;
+}
+
