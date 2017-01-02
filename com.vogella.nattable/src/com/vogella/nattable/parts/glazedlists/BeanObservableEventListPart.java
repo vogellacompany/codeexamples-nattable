@@ -33,13 +33,17 @@ public class BeanObservableEventListPart {
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
 		List<Person> persons = personService.getPersons(10);
+		
+		// create an EventList, which can track changes to the list of persons
 		EventList<Person> personEventList = GlazedLists.eventList(persons);
+		
+		// create an ObservableElementList, which can track changes to the person objects with a bean connector
 		ObservableElementList<Person> observableElementList = new ObservableElementList<>(personEventList,
 				GlazedLists.beanConnector(Person.class));
 		PersonDataProvider personDataProvider = new PersonDataProvider(observableElementList);
 		DataLayer bodyDataLayer = new DataLayer(personDataProvider);
 
-		// add a DetailGlazedListsEventLayer event layer that is responsible for
+		// add a GlazedListsEventLayer event layer that is responsible for
 		// updating the grid on list changes
 		GlazedListsEventLayer<Person> glazedListsEventLayer = new GlazedListsEventLayer<>(bodyDataLayer,
 				observableElementList);

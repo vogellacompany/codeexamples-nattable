@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.nebula.widgets.nattable.NatTable;
-import org.eclipse.nebula.widgets.nattable.extension.glazedlists.DetailGlazedListsEventLayer;
+import org.eclipse.nebula.widgets.nattable.extension.glazedlists.GlazedListsEventLayer;
 import org.eclipse.nebula.widgets.nattable.layer.DataLayer;
 import org.eclipse.nebula.widgets.nattable.selection.SelectionLayer;
 import org.eclipse.nebula.widgets.nattable.viewport.ViewportLayer;
@@ -32,13 +32,15 @@ public class EventListPart {
 	@PostConstruct
 	public void postConstruct(Composite parent, PersonService personService) {
 		List<Person> persons = personService.getPersons(10);
+		
+		// create an EventList, which can track changes to the list of persons
 		EventList<Person> personEventList = GlazedLists.eventList(persons);
 		PersonDataProvider personDataProvider = new PersonDataProvider(personEventList);
 		DataLayer bodyDataLayer = new DataLayer(personDataProvider);
 
-		// add a DetailGlazedListsEventLayer event layer that is responsible for
+		// add a GlazedListsEventLayer event layer that is responsible for
 		// updating the grid on list changes
-		DetailGlazedListsEventLayer<Person> glazedListsEventLayer = new DetailGlazedListsEventLayer<>(bodyDataLayer,
+		GlazedListsEventLayer<Person> glazedListsEventLayer = new GlazedListsEventLayer<>(bodyDataLayer,
 				personEventList);
 
 		SelectionLayer selectionLayer = new SelectionLayer(glazedListsEventLayer);
